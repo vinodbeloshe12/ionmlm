@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>User List</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!-- <div *ngIf="userArr" padding class="tree">
+    <div padding *ngFor="let data of userArr">
+      {{data.name}}({{data.userid}})
+      <div padding class="tree">
+        <ion-list *ngFor="let user1 of data.users">
+          {{user1.name}}({{user1.userid}})
+          <div padding class="tree">
+            <ion-list *ngFor="let user2 of user1.users">
+              {{user2.userid}}
+            </ion-list>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+  </div> -->
+
+
+  <div *ngIf="userArr && userArr.length>0" class="tree">
+    <ul>
+      <li>
+        <a href="#">{{userData.name}} ({{userData.id}})</a>
+        <ul>
+          <li *ngFor="let data of filterUser">
+            <a href="#">{{data.name}} ({{data.id}})</a>
+            <ul *ngIf="data.users">
+              <li *ngFor="let user of data.users">
+                <a href="#">{{user.name}} ({{user.id}})</a>
+                <ul *ngIf="user.users">
+                  <li *ngFor="let user1 of user.users">
+                    <a href="#">{{user1.name}} ({{user1.id}})</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+    </ul>
+    <!-- <ul>
+      <li>
+        <a href="#">1</a>
+        <ul>
+          <li>
+            <a href="#">2</a>
+            <ul>
+              <li>
+                <a href="#">2.1</a>
+
+              </li>
+              <li>
+                <a href="#">2.2</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">3</a>
+            <ul>
+              <ul>
+                <li>
+                  <a href="#">3.1</a>
+                  <ul>
+                    <li>
+                      <a href="#">3.1.1</a>
+                    </li>
+                    <li>
+                      <a href="#">3.1.2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">3.2</a>
+                </li>
+              </ul>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul> -->
+  </div>
+</ion-content>
