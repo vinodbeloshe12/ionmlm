@@ -31,15 +31,17 @@ export class ListPage {
       let gval = _.groupBy(this.userArr, 'parentid');
       this.filterUser = gval[id];
       console.log("gvallllllll", gval)
-      this.filterUser.forEach(element => {
-        console.log(element)
-        element.users = gval[element.id];
-        if (element.users && element.users.length > 0) {
-          element.users.forEach(element => {
-            element.users = gval[element.id];
-          });
-        }
-      });
+      if (this.filterUser && this.filterUser.length > 0) {
+        this.filterUser.forEach(element => {
+          console.log(element)
+          element.users = gval[element.id];
+          if (element.users && element.users.length > 0) {
+            element.users.forEach(element => {
+              element.users = gval[element.id];
+            });
+          }
+        });
+      }
       console.log("aaaa", this.filterUser);
 
     })

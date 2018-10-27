@@ -1,0 +1,18 @@
+page-login {
+  .bg {
+    background-image: url(http://i.imgur.com/bshfOAr.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .item-ios,
+  .item-md {
+    background: transparent !important;
+  }
+  .loginCont {
+    // position: relative;
+    // top: 50%;
+    // transform: translateY(-50%);
+    padding: 25% 0 0 0;
+    color: #fff;
+  }
+}
