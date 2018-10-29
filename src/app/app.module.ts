@@ -12,14 +12,16 @@ import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { WebviewPage } from '../pages/webview/webview';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
     UserPage,
-    LoginPage
+    LoginPage,
+    WebviewPage
   ],
   imports: [
     BrowserModule,
@@ -33,11 +35,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     UserPage,
-    LoginPage
+    LoginPage,
+    WebviewPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
