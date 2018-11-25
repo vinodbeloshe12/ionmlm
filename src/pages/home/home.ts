@@ -4,7 +4,7 @@ import { InAppBrowser, InAppBrowserEvent } from '@ionic-native/in-app-browser';
 import { ListPage } from '../list/list';
 import { Storage } from '@ionic/storage';
 import { WebviewPage } from '../webview/webview';
-
+// import { Contacts, ContactFieldType, ContactFindOptions } from '@ionic-native/contacts';
 
 @Component({
   selector: 'page-home',
@@ -12,22 +12,30 @@ import { WebviewPage } from '../webview/webview';
 })
 
 export class HomePage {
+  allContacts: any;
   userData: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private iab: InAppBrowser, private platform: Platform) {
+    // constructor(private contacts: Contacts, public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private iab: InAppBrowser, private platform: Platform) {
     this.storage.get('name').then((val) => {
       console.log('Your name is', val);
       this.userData = val;
     });
 
 
+
+    this.platform.ready().then(() => {
+      // this.contacts.find(['displayName', 'name', 'phoneNumbers', 'emails'], { filter: "", multiple: true })
+      //   .then(data => {
+      //     this.allContacts = data;
+
+      //   });
+    })
   }
 
+
+
   openPage(url) {
-    // this.platform.ready().then(() => {
-    //   let browser = this.iab.create(url, '_blank', 'location=yes');
-    //   browser.show();
-    // })
     this.navCtrl.push(WebviewPage, {
       url: url
     });

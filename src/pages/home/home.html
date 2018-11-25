@@ -9,6 +9,10 @@
 
 
 <ion-content padding class="card-background-page">
+
+  <button ion-button block (click)="singlenotification()">One notification</button>
+
+
   <ion-searchbar [(ngModel)]="myInput" placeholder="Enter Id" (keyup.enter)="search(myInput)" [showCancelButton]="shouldShowCancel"
     (ionCancel)="myInput=''">
   </ion-searchbar>
