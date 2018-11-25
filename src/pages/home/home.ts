@@ -17,7 +17,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private iab: InAppBrowser, private platform: Platform) {
     // constructor(private contacts: Contacts, public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private iab: InAppBrowser, private platform: Platform) {
-    this.storage.get('name').then((val) => {
+    this.storage.get('userData').then((val) => {
       console.log('Your name is', val);
       this.userData = val;
     });

@@ -1,4 +1,10 @@
 page-list {
+  .bg {
+    background-color: #fff;
+    background-image: url(../assets/imgs/bg1.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
   $border-width: 1px;
   $reverse: false;
   .test {
@@ -73,6 +79,7 @@ page-list {
     border: $border-width solid #ccc;
     padding: .5em .75em;
     text-decoration: none;
+    background: #fff;
     display: inline-block;
     border-radius: 5px;
     color: #333;
@@ -84,15 +91,15 @@ page-list {
   }
   .tree li a:hover,
   .tree li a:hover+ul li a {
-    background: #e9453f;
+    background: #e69020 !important;
     color: #fff;
-    border: $border-width solid #e9453f;
+    border: $border-width solid #e69020 !important;
   }
   .tree li a:hover+ul li::after,
   .tree li a:hover+ul li::before,
   .tree li a:hover+ul::before,
   .tree li a:hover+ul ul::before {
-    border-color: #e9453f;
+    border-color: #e69020 !important;
   }
   .scroll-content {
     overflow-x: scroll !important;

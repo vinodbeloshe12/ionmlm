@@ -6,7 +6,7 @@
   </ion-header>
 
   <ion-content>
-    <ion-list>
+    <ion-list *ngIf="userId=='970212'">
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>

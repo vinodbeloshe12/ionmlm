@@ -21,12 +21,20 @@ export class LoginPage {
       let headers = new HttpHeaders();
       let data = { userId: val }
       headers.append('Content-Type', 'application/json');
-      // this.adduser = this.http.get('http://localhost/faback/index.php/json/getallcategory');
-      this.http.post("http://admin.findacross.com/index.php/json/mlmLogin", JSON.stringify(data), { headers: headers }).subscribe(data => {
-        console.log('user logged in: ', data);
-        this.storage.set('userData', data);
-        this.showToast("User Logged In successfully", 'top');
-        this.navCtrl.push(HomePage);
+      this.http.get("http://admin.findacross.com/index.php/json/mlmLogin?userId=" + val, { headers: headers }).subscribe(data => {
+        let userData: any = data;
+        console.log('user logged in: ', userData);
+        if (userData && userData.length != 0) {
+          this.storage.set('userData', userData[0]);
+          this.showToast("User Logged In successfully", 'top');
+          this.navCtrl.push(HomePage);
+        } else {
+          this.showToast("Invalid User Id", 'top');
+        }
+
+      }, err => {
+        console.log(err);
+        this.showToast("Internal Server Error!", 'top');
       })
 
     } else {

@@ -17,12 +17,16 @@ export class MyApp {
 
   rootPage: any;
   userData: any;
+  userId: any;
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage) {
-    storage.get('name').then((val) => {
+    storage.get('userData').then((val) => {
       console.log('Your name is', val);
       this.userData = val;
+      if (typeof this.userData == 'object') {
+        this.userId = this.userData.userid;
+      }
       if (this.userData) {
         this.rootPage = HomePage;
       } else {

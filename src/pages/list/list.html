@@ -6,10 +6,10 @@
     <ion-title>User List</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="bg">
   <!-- <div *ngIf="userArr" padding class="tree">
     <div padding *ngFor="let data of userArr">
-      {{data.name}}({{data.userid}})
+      {{data.name}}({{data.useruserid}})
       <div padding class="tree">
         <ion-list *ngFor="let user1 of data.users">
           {{user1.name}}({{user1.userid}})
@@ -27,16 +27,16 @@
   <div *ngIf="userArr && userArr.length>0" class="tree">
     <ul>
       <li>
-        <a href="#">{{userData.name}} ({{userData.id}})</a>
+        <a title="{{userData.name}}" href="#">{{userData.userid}}</a>
         <ul>
           <li *ngFor="let data of filterUser">
-            <a href="#">{{data.name}} ({{data.id}})</a>
+            <a title="{{userData.name}}" href="#">{{data.userid}}</a>
             <ul *ngIf="data.users">
               <li *ngFor="let user of data.users">
-                <a href="#">{{user.name}} ({{user.id}})</a>
+                <a title="{{userData.name}}" href="#">{{user.userid}}</a>
                 <ul *ngIf="user.users">
                   <li *ngFor="let user1 of user.users">
-                    <a href="#">{{user1.name}} ({{user1.id}})</a>
+                    <a title="{{userData.name}}" href="#">{{user1.userid}}</a>
                   </li>
                 </ul>
               </li>
